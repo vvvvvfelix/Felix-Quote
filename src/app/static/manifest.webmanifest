@@ -1,0 +1,9 @@
+{
+  "name": "Felix 企业管理平台",
+  "short_name": "Felix",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#141821",
+  "background_color": "#F4F5F7",
+  "icons": []
+}

@@ -1,0 +1,56 @@
+# =============================================================================
+# Felix 企业管理平台 — SQL Server (T-SQL) 后端冒烟环境（M108）
+# -----------------------------------------------------------------------------
+# 用途：本地一键拉起一个 SQL Server / Azure SQL Edge 实例，供后续 M108 阶段
+#       起应用并跑 python tools/smoke_test.py 做 mssql 分支冒烟。
+#
+# 说明：
+#   1. 当前应用 DB 层仍是裸 sqlite3（database.get_conn）。WV_DB_BACKEND=mssql
+#      时连接工厂会明确提示「查询方言移植进行中」，即 mssql 业务查询尚未就绪；
+#      本 compose 先把「数据库实例 + 连接配置」这一半落地，应用侧接入（SQLAlchemy
+#      引擎 / 业务查询 T-SQL 化）属 M108 后续阶段（见 tools/M108_DIALECT_AUDIT.md
+#      的「剩余未移植模块清单」）。
+#   2. app 服务默认用 host 网络在宿主机直接跑（无需为应用单独做镜像）；仅给出
+#      可选容器化接线示例（注释掉）。要起 app 容器需另备 Dockerfile。
+#   3. 密码请按实际环境修改；示例密码仅用于本地自测。
+# =============================================================================
+services:
+  mssql:
+    image: mcr.microsoft.com/azure-sql-edge:latest     # 本地轻量首选；也可用 mcr.microsoft.com/mssql/server:2022-latest
+    container_name: felix-mssql
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "Felix@2026mssql"
+      MSSQL_PID: "Developer"
+    ports:
+      - "1433:1433"
+    volumes:
+      - mssql_data:/var/opt/mssql
+    healthcheck:
+      test: ["CMD-SHELL", "/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P \"$MSSQL_SA_PASSWORD\" -Q 'SELECT 1' || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 15
+
+  # ---------------------------------------------------------------------------
+  # 可选：应用容器化接线示例（当前默认在宿主机直接跑 app，不必启用本服务）。
+  # 启用前请先准备 Dockerfile（基于 python:3.11-slim，pip install -r requirements.txt）。
+  # ---------------------------------------------------------------------------
+  # app:
+  #   build: .
+  #   container_name: felix-app
+  #   depends_on:
+  #     mssql:
+  #       condition: service_healthy
+  #   environment:
+  #     WV_DB_BACKEND: "mssql"
+  #     WV_MSSQL_SERVER: "mssql"        # compose 服务名即 DNS 名
+  #     WV_MSSQL_PORT: "1433"
+  #     WV_MSSQL_DB: "felix"
+  #     WV_MSSQL_USER: "sa"
+  #     WV_MSSQL_PWD: "Felix@2026mssql"
+  #   ports:
+  #     - "8000:8000"
+
+volumes:
+  mssql_data:

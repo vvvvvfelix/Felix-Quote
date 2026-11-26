@@ -1,0 +1,9 @@
+Felix 报价系统 便携版
+版本     v1.3.0
+著作权人 Felix（WV-2026-FELIX-0001）
+Copyright (C) 2026 Felix. All Rights Reserved.
+构建时间 2026-10-23 20:57:46
+Python   3.13.14
+系统     win32
+运行时   256.6 MB
+归属指纹 e999d031ea3dd33812383278de47a4ef…

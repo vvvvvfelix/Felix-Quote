@@ -1,0 +1,52 @@
+# ==========================================================================
+# Felix 企业管理平台 — 仓库忽略规则
+# 原则：只入「源码 + 文档 + 工具」，绝不入「运行时 / 数据 / 产物 / 含密码的配置」
+# ==========================================================================
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.pyc
+*.egg-info/
+.venv/
+venv/
+
+# ---- 便携版 Python 运行时（265MB，入库会把仓库撑爆）----
+src/runtime/
+
+# ---- 数据库文件（业务数据，不入库）----
+*.db
+*.db-wal
+*.db-shm
+*.db.initlock
+*.sqlite
+*.sqlite3
+src/data/*.db*
+.qa_tmp/
+
+# ---- 数据库连接配置（含管理员密码，严禁入库）----
+src/data/dbconfig.json
+dbconfig.json
+
+# ---- 部署配置（含机器路径，且可能落数据库密码；由部署工具重新生成）----
+deploy/deploy.conf
+
+# ---- 打包产物 ----
+dist/
+build/
+*.rar
+*.7z
+*.zip
+
+# ---- 备份与日志 ----
+src/backup/*
+*.log
+deploy/logs/*
+
+# ---- 编辑器 / 系统 ----
+.vscode/
+.idea/
+.workbuddy/
+Thumbs.db
+desktop.ini
+.DS_Store

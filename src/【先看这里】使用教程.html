@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>使用说明 · Felix 外贸报价单生成器</title>
+<style>
+  body{font-family:"Microsoft YaHei","Segoe UI",sans-serif;background:#F4F5F7;
+       color:#1B1D21;margin:0;padding:32px 20px;line-height:1.75}
+  .wrap{max-width:880px;margin:0 auto;background:#fff;border-radius:14px;
+        box-shadow:0 2px 20px rgba(0,0,0,.08);overflow:hidden}
+  .hd{background:linear-gradient(135deg,#141821,#3D2F16);color:#fff;padding:34px 40px}
+  .hd .brand{font-size:26px;font-weight:800;color:#D4A017;letter-spacing:4px}
+  .hd .cn{font-size:17px;margin-top:8px;font-weight:600}
+  .hd .en{font-size:12px;color:#B9BFCB;margin-top:5px;letter-spacing:.6px}
+  .bd{padding:32px 40px 40px}
+  h2{font-size:17px;color:#B8860B;margin:30px 0 12px;padding-left:11px;
+     border-left:4px solid #B8860B}
+  h2:first-of-type{margin-top:0}
+  .steps{display:flex;gap:14px;flex-wrap:wrap;margin:8px 0 6px}
+  .step{flex:1;min-width:210px;background:#FDF9F0;border:2px solid #EFE3C8;
+        border-radius:11px;padding:16px 18px}
+  .step .n{display:inline-grid;place-items:center;width:26px;height:26px;
+           border-radius:50%;background:#B8860B;color:#fff;font-weight:800;
+           font-size:13px;margin-bottom:9px}
+  .step .t{font-weight:700;margin-bottom:5px}
+  .step .d{font-size:12.5px;color:#5A6070}
+  .cred{background:#141821;color:#D4A017;padding:13px 17px;border-radius:8px;
+        font-family:Consolas,monospace;font-size:13.5px;margin:11px 0;letter-spacing:.4px}
+  table{width:100%;border-collapse:collapse;margin:11px 0;font-size:13px}
+  th{background:#F7F5EE;text-align:left;padding:9px 12px;border:1px solid #E3E0D5;
+     font-size:12.5px;color:#5A6070}
+  td{padding:9px 12px;border:1px solid #E8E9ED;vertical-align:top}
+  td:first-child{font-weight:600;width:31%}
+  .ok{background:#EAF6EE;color:#1F7A44}
+  .fix{background:#FFF8E8;color:#8A5A00}
+  .warn{background:#FDECEA;color:#A8322B}
+  .code{background:#1E222C;color:#D8DCE6;padding:11px 14px;border-radius:7px;
+        font-family:Consolas,monospace;font-size:12.5px;word-break:break-all}
+  .nav{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+  .nav a{background:#F1EFE8;color:#5A6070;text-decoration:none;padding:5px 12px;
+         border-radius:6px;font-size:12.5px}
+  .nav a:hover{background:#E4E1D6;color:#1B1D21}
+  .ft{text-align:center;color:#8B90A0;font-size:12px;padding:20px;
+      border-top:1px solid #E8E9ED;margin-top:30px}
+  ul{margin:9px 0;padding-left:22px}
+  li{margin:5px 0}
+  .warnbox{background:#FFF9EC;border:1px solid #EFE3C8;border-left:4px solid #B8860B;
+      border-radius:7px;padding:13px 15px;margin:12px 0;font-size:13.5px;line-height:1.9}
+  .warnbox b{color:#8A6410}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="hd">
+    <div class="brand">FELIX</div>
+    <div class="cn">菲力克斯科技（广州）有限公司 · Felix 外贸报价单生成器</div>
+    <div class="en">Felix Technology (Guangzhou) Co., Ltd. — Felix Foreign Trade Quotation System</div>
+    <div class="en" style="color:#B8860B;margin-top:6px">
+      软件著作权人：Felix · WV-2026-FELIX-0001 · Copyright (C) 2026 Felix
+    </div>
+  </div>
+
+  <div class="bd">
+    <div class="nav">
+      <a href="#start">开始使用</a><a href="#feature">功能速查</a>
+      <a href="#problem">问题解决</a><a href="#safe">安全说明</a>
+      <a href="#own">版权与声明</a>
+    </div>
+
+    <h2 id="start">开始使用（只有三步）</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="n">1</div>
+        <div class="t">双击 启动.bat</div>
+        <div class="d">程序自动检测环境、初始化数据、打开浏览器</div>
+      </div>
+      <div class="step">
+        <div class="n">2</div>
+        <div class="t">输入账号登录</div>
+        <div class="d">浏览器会自动打开登录页</div>
+      </div>
+      <div class="step">
+        <div class="n">3</div>
+        <div class="t">开始做报价单</div>
+        <div class="d">选客户 → 选产品 → 预览 → 导出 PDF</div>
+      </div>
+    </div>
+
+    <div class="cred">用户名：admin<br>密　码：wv2026</div>
+
+    <div class="fix" style="padding:12px 16px;border-radius:8px;margin-top:12px">
+      <b>⚠ 第一次使用请先改密码</b><br>
+      登录后进入左侧「用户管理」，找到 admin 并修改密码。
+    </div>
+
+    <h2 id="feature">功能速查</h2>
+    <table>
+      <tr><th>功能</th><th>能做什么</th></tr>
+      <tr><td>产品库</td><td>管理设备参数：规格、材质、净重毛重、证书、FOB 价格</td></tr>
+      <tr><td>报价单制作</td><td>选客户与产品，自动算总价，一键导出 PDF 发给客户</td></tr>
+      <tr><td>资料库</td><td>Excel / PDF / 截图 / 照片丢进来，自动识别成产品数据</td></tr>
+      <tr><td>客户管理</td><td>维护海外客户的地址、付款方式、贸易条款</td></tr>
+      <tr><td>报价模板</td><td>按需修改报价单版式（内置 3 套可编辑模板）</td></tr>
+      <tr><td>供应商</td><td>管理自有产线与外协厂商，按品类区分参数体系</td></tr>
+    </table>
+
+    <h2 id="problem">遇到问题怎么办</h2>
+    <div class="fix" style="padding:13px 17px;border-radius:8px;margin-bottom:14px">
+      <b>第一步：双击「检查依赖.bat」</b><br>
+      它会直接告诉你问题出在哪、该怎么处理。
+    </div>
+
+    <table>
+      <tr><th>看到什么提示</th><th>原因与解决办法</th></tr>
+      <tr>
+        <td class="warn">图片识别不可用<br>（Windows 7 / Vista）</td>
+        <td class="fix">
+          <b>原因：</b>系统版本过低，AI 推理引擎不支持。<br>
+          <b>影响：</b>仅"上传截图/照片"这一个功能。<br>
+          <b>可用：</b>产品库、客户、报价单、PDF 导出全部正常。<br>
+          <b>替代方案：</b>用 Excel / PDF 文件导入，同样能自动识别产品参数。
+        </td>
+      </tr>
+      <tr>
+        <td class="warn">缺少 Visual C++ 运行库</td>
+        <td class="fix">
+          <b>原因：</b>系统未装微软 VC++ 2015-2022 运行库。<br>
+          <b>解决：</b>安装官方运行库后重启电脑<br>
+          <span class="code">https://aka.ms/vs/17/release/vc_redist.x64.exe</span>
+        </td>
+      </tr>
+      <tr>
+        <td class="warn">内存不足</td>
+        <td class="fix">
+          <b>原因：</b>可用内存低于 700MB，模型加载不下。<br>
+          <b>解决：</b>关闭浏览器多开、Office、CAD 等程序后重试。<br>
+          <b>建议：</b>本机内存 4GB 以上。
+        </td>
+      </tr>
+      <tr>
+        <td class="warn">模型文件缺失</td>
+        <td class="fix">
+          <b>原因：</b>模型被杀毒软件删除，或压缩包解压不完整。<br>
+          <b>解决：</b>重新完整解压，并检查杀毒软件隔离区。
+        </td>
+      </tr>
+      <tr>
+        <td class="warn">双击没反应 / 闪退</td>
+        <td class="fix">
+          <b>原因：</b>解压不完整、权限不足，或路径含中文空格。<br>
+          <b>解决：</b>① 确认"完整解压"而非直接双击压缩包内文件<br>
+          　　　　　② 右键启动.bat → 以管理员身份运行<br>
+          　　　　　③ 解压到 <b>D:\VG</b> 这类不含中文空格的路径
+        </td>
+      </tr>
+      <tr>
+        <td class="warn">端口被占用</td>
+        <td class="fix">
+          <b>解决：</b>双击【启动-指定端口.bat】换个端口；
+          或先双击【停止服务.bat】结束残留进程。
+        </td>
+      </tr>
+    </table>
+
+    <h2 id="safe">安全与隐私</h2>
+    <ul>
+      <li><b>数据只存在你自己的电脑上</b>，不上传任何服务器</li>
+      <li><b>全程离线</b>，不需要网络连接</li>
+      <li><b>零 Token 消耗</b>，所有计算都在本机完成</li>
+      <li>数据位置：<code>data\wv.db</code>（数据库）、
+          <code>app\static\uploads\</code>（上传的原始文件）</li>
+      <li>换电脑：复制整个文件夹到新机器，双击启动即可</li>
+      <li>杀毒软件偶尔误报绿色打包程序，添加到信任列表即可</li>
+    </ul>
+
+    <h2 id="own">软件归属与责任声明</h2>
+    <div class="warnbox">
+      <b>著作权人：Felix（权属登记号 WV-2026-FELIX-0001）</b><br>
+      Copyright (C) 2026 Felix. All Rights Reserved.<br>
+      菲力克斯科技（广州）有限公司为本软件的使用单位，非著作权人。
+    </div>
+    <p>本软件的全部源代码、界面、文档与预置数据，著作权均归 <b>Felix</b> 所有。
+       软件内每一处署名、每一份导出文件的文档属性（作者 / 最后修改者 / 说明）
+       以及 PDF 页脚水印，均嵌入著作权人标识，可作为权属归属的技术证据。</p>
+    <p><b>禁止行为</b>（未经书面许可）：复制传播、二次分发、转售出租、反编译破解、
+       去除或篡改署名与水印、商业再授权、删除本声明。</p>
+    <p><b>责任声明</b>：本软件按「现状」提供。软件仅作为报价单制作工具，
+       所有价格、交期、认证、条款的最终确认权在使用者与客户之间；
+       数据全部存放于本机，请自行定期备份，因磁盘故障、误删造成的数据丢失
+       作者不承担赔偿责任。完整条款见同目录
+       <code>【版权与授权】责任声明.txt</code>，或登录后在系统内
+       「关于与授权」页面查看。</p>
+
+    <div class="ft">
+      菲力克斯科技（广州）有限公司（使用单位）<br>
+      Tel +86 20 3667 7767　|　服务热线 400 001 1367　|　www.example.com<br>
+      <span style="opacity:.75">© 2026 Felix · WV-2026-FELIX-0001 · 著作权归作者所有</span>
+    </div>
+  </div>
+</div>
+</body>
+</html>
